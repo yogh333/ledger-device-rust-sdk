@@ -29,12 +29,12 @@ use core::panic::PanicInfo;
 pub fn exiting_panic(_info: &PanicInfo) -> ! {
     let mut comm = io::Comm::new();
     comm.reply(io::StatusWords::Panic);
-    ledger_sdk_sys::exit_app(0);
+    ledger_secure_sdk_sys::exit_app(0);
 }
 
 // re-export exit_app
-pub use ledger_sdk_sys::buttons;
-pub use ledger_sdk_sys::exit_app;
+pub use ledger_secure_sdk_sys::buttons;
+pub use ledger_secure_sdk_sys::exit_app;
 
 /// Helper macro that sets an external panic handler
 /// as the project's current panic handler
@@ -58,7 +58,7 @@ extern "C" {
 pub extern "C" fn _start() -> ! {
     // Main is in C until the try_context can be set properly from Rust
     unsafe { c_main() };
-    ledger_sdk_sys::exit_app(1);
+    ledger_secure_sdk_sys::exit_app(1);
 }
 
 /// Data wrapper to force access through address translation with [`pic_rs`] or
@@ -85,12 +85,12 @@ impl<T> Pic<T> {
 
     /// Returns translated reference to the wrapped data.
     pub fn get_ref(&self) -> &T {
-        ledger_sdk_sys::pic_rs(&self.data)
+        ledger_secure_sdk_sys::pic_rs(&self.data)
     }
 
     /// Returns translated mutable reference to the wrapped data.
     pub fn get_mut(&mut self) -> &mut T {
-        ledger_sdk_sys::pic_rs_mut(&mut self.data)
+        ledger_secure_sdk_sys::pic_rs_mut(&mut self.data)
     }
 }
 
@@ -118,7 +118,7 @@ impl<T> NVMData<T> {
 
     #[cfg(target_os = "nanos")]
     pub fn get_mut(&mut self) -> &mut T {
-        ledger_sdk_sys::pic_rs_mut(&mut self.data)
+        ledger_secure_sdk_sys::pic_rs_mut(&mut self.data)
     }
 
     /// This will return a mutable access by casting the pointer
@@ -137,7 +137,7 @@ impl<T> NVMData<T> {
             asm!( "mov {}, r9", out(reg) static_base);
             let offset = (addr - static_base) as isize;
             let data_addr = (_nvram_data as *const u8).offset(offset);
-            let pic_addr = ledger_sdk_sys::pic(data_addr as *mut core::ffi::c_void) as *mut T;
+            let pic_addr = ledger_secure_sdk_sys::pic(data_addr as *mut core::ffi::c_void) as *mut T;
             &mut *pic_addr.cast()
         }
     }

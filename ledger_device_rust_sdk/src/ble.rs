@@ -1,4 +1,4 @@
-use ledger_sdk_sys::{LEDGER_BLE_receive, LEDGER_BLE_send, LEDGER_BLE_set_recv_buffer};
+use ledger_secure_sdk_sys::{LEDGER_BLE_receive, LEDGER_BLE_send, LEDGER_BLE_set_recv_buffer};
 
 pub fn receive(apdu_buffer: &mut [u8], spi_buffer: &[u8]) {
     unsafe {

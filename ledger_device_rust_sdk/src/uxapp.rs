@@ -1,14 +1,14 @@
-use ledger_sdk_sys::seph as sys_seph;
-use ledger_sdk_sys::*;
+use ledger_secure_sdk_sys::seph as sys_seph;
+use ledger_secure_sdk_sys::*;
 
 use crate::io::{ApduHeader, Comm, Event};
 
-pub use ledger_sdk_sys::BOLOS_UX_CANCEL;
-pub use ledger_sdk_sys::BOLOS_UX_CONTINUE;
-pub use ledger_sdk_sys::BOLOS_UX_ERROR;
-pub use ledger_sdk_sys::BOLOS_UX_IGNORE;
-pub use ledger_sdk_sys::BOLOS_UX_OK;
-pub use ledger_sdk_sys::BOLOS_UX_REDRAW;
+pub use ledger_secure_sdk_sys::BOLOS_UX_CANCEL;
+pub use ledger_secure_sdk_sys::BOLOS_UX_CONTINUE;
+pub use ledger_secure_sdk_sys::BOLOS_UX_ERROR;
+pub use ledger_secure_sdk_sys::BOLOS_UX_IGNORE;
+pub use ledger_secure_sdk_sys::BOLOS_UX_OK;
+pub use ledger_secure_sdk_sys::BOLOS_UX_REDRAW;
 
 fn os_ux_rs(params: &bolos_ux_params_t) {
     unsafe { os_ux(params as *const bolos_ux_params_t as *mut bolos_ux_params_t) };

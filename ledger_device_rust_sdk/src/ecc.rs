@@ -1,4 +1,4 @@
-use ledger_sdk_sys::*;
+use ledger_secure_sdk_sys::*;
 use zeroize::Zeroize;
 
 mod stark;

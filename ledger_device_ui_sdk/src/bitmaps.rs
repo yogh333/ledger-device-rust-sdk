@@ -1,5 +1,5 @@
 use crate::screen_util::draw;
-use ledger_sdk_sys;
+use ledger_secure_sdk_sys;
 
 pub struct Glyph<'a> {
     pub bitmap: &'a [u8],
@@ -39,7 +39,7 @@ impl<'a> Glyph<'a> {
 pub fn manual_screen_clear() {
     let inverted = [0u32, 1u32];
     unsafe {
-        ledger_sdk_sys::bagl_hal_draw_bitmap_within_rect(
+        ledger_secure_sdk_sys::bagl_hal_draw_bitmap_within_rect(
             0, 
             0, 
             128, 

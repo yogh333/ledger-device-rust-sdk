@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-use ledger_sdk_sys::{seph, buttons::{get_button_event, ButtonEvent, ButtonsState}};
+use ledger_secure_sdk_sys::{seph, buttons::{get_button_event, ButtonEvent, ButtonsState}};
 
 use crate::bagls::*;
 
@@ -35,7 +35,7 @@ pub fn clear_screen() {
 
         #[cfg(not(feature = "speculos"))]
         unsafe {
-            ledger_sdk_sys::screen_clear();
+            ledger_secure_sdk_sys::screen_clear();
         }
 
         #[cfg(feature = "speculos")]

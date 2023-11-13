@@ -1,6 +1,6 @@
 #![allow(clippy::upper_case_acronyms)]
 
-use ledger_sdk_sys::*;
+use ledger_secure_sdk_sys::*;
 
 #[cfg(target_os = "nanox")]
 use crate::ble;

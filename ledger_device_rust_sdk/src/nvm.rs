@@ -40,7 +40,7 @@
 //! println!("counter value is {}", *counter.get_ref());
 //! ```
 
-use ledger_sdk_sys::nvm_write;
+use ledger_secure_sdk_sys::nvm_write;
 use AtomicStorageElem::{StorageA, StorageB};
 
 // Warning: currently alignment is fixed by magic values everywhere, since

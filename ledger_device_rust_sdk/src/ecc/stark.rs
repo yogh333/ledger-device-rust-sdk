@@ -1,5 +1,5 @@
 use crate::ecc::{CurvesId, Secret};
-use ledger_sdk_sys::*;
+use ledger_secure_sdk_sys::*;
 
 // C_cx_secp256k1_n - (C_cx_secp256k1_n % C_cx_Stark256_n)
 const STARK_DERIVE_BIAS: [u8; 32] = [
