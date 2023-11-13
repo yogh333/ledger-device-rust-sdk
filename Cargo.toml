@@ -2,7 +2,14 @@
 members = [
 	"ledger_device_rust_sdk",
 	"ledger_device_ui_sdk",
-	"ledger_sdk_sys",
+	"ledger_secure_sdk_sys",
 	"include_gif"
 ]
 resolver = "2"
+
+[workspace.package]
+license = "Apache-2.0" 
+description = "Ledger Device Rust SDK crates"
+repository = "https://github.com/yogh333/ledger-device-rust-sdk.git"
+readme = "README.md"
+authors = ["Ledger"]
