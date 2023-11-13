@@ -13,8 +13,8 @@
 //! update:
 //!
 //! ```
-//! use nanos_sdk::PIC;
-//! use nanos_sdk::nvm::AtomicStorage;
+//! use ledger_device_rust_sdk::PIC;
+//! use ledger_device_rust_sdk::nvm::AtomicStorage;
 //!
 //! // This is necessary to store the object in NVM and not in RAM
 //! #[link_section=".nvm_data"]
