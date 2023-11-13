@@ -1,0 +1,8 @@
+[workspace]
+members = [
+	"ledger_device_rust_sdk",
+	"ledger_device_ui_sdk",
+	"ledger_sdk_sys",
+	"include_gif"
+]
+resolver = "2"
